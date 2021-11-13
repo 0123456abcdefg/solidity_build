@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 # Controls when the workflow will run
@@ -21,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ashutoshvarma/action-cmake-build@v1
+      - uses: lukka/get-cmake@v3.21.2
       - uses: srt32/git-actions@v0.0.3
       - uses: MarkusJx/install-boost@v2.0.0
       - uses: crazy-max/ghaction-chocolatey@v1.6.0
