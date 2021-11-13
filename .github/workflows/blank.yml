@@ -18,9 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: lukka/get-cmake@v3.21.2
-      - uses: MarkusJx/install-boost@v2.0.0
       - uses: crazy-max/ghaction-chocolatey@v1.6.0
-
+      
+      - name: install boost
+        uses: MarkusJx/install-boost@v2.0.0
+        with:
+          boost_version: "1.77.0"
       - name: Build
         run: |
           choco install git
