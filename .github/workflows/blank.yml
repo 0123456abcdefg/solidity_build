@@ -1,8 +1,6 @@
 name: CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
   pull_request:
@@ -20,12 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: lukka/get-cmake@v3.21.2
-      - uses: srt32/git-actions@v0.0.3
       - uses: MarkusJx/install-boost@v2.0.0
       - uses: crazy-max/ghaction-chocolatey@v1.6.0
 
       - name: Build
         run: |
+          choco install git
           git clone --depth 1 --recursive https://github.com/ethereum/solidity.git
           choco install visualstudio2019-workload-nativedesktop --package-parameters "--includeOptional --includeRecommended"
           cd solidity
